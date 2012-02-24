@@ -1,0 +1,27 @@
+
+
+%h2 Register as a Site Manager Part II
+
+%p Please enter credit card details (you will be only charged for the work done, with option for refund).
+
+= form_tag 'process-site-manager-2' do
+
+  .field
+    Name on card
+    = text_field_tag 'credit_card[name]'
+
+  .field
+    Credit card number
+    = text_field_tag 'credit_card[number]'
+    = select 'actor', 'credit_card[type]', ['Visa', 'MasterCard', 'American Express']
+
+  .field
+    Expiration Date
+    = text_field_tag 'credit_card[expiration_date]'
+
+  .field
+    Secret Code
+    = text_field_tag 'credit_card[ccv]'
+
+  .action
+    = submit_tag 'Continue to Dashboard'

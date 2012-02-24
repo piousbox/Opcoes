@@ -1,0 +1,23 @@
+
+
+%h2 Register as a Site Manager
+
+%p Select this option if you have a site that you promote, if you are looking to buy backlinks, and if you are looking to spend (not make) money using this service.
+
+= form_tag 'process-site-manager' do
+
+  .field
+    Username
+    = text_field_tag 'actor[username]'
+
+  .field
+    Email
+    = text_field_tag 'actor[email]'
+
+  .field
+    Password
+    = password_field_tag 'actor[password]'
+    = password_field_tag 'actor[password_confirm]'
+
+  .action
+    = submit_tag 'Continue'

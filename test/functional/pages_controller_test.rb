@@ -15,11 +15,6 @@ class PagesControllerTest < ActionController::TestCase
     assert_response :success
   end
   
-  test 'register' do
-    get :register
-    assert_response :success
-  end
-  
   test 'login' do
     get :login
     assert_response :success
@@ -33,5 +28,11 @@ class PagesControllerTest < ActionController::TestCase
   test 'register link builder' do
     get :register_link_builder
     assert_response :success
+  end
+  
+  test 'process site_manager' do
+    post :process_site_manager
+    assert_response :redirect
+    assert_redirected_to :action => :register_site_manager_2
   end
 end

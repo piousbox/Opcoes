@@ -7,4 +7,8 @@
 %ul
   %li= link_to 'Tour', :action => 'tour'
   %li= link_to 'Login', :action => 'login'
-  %li= link_to 'Register', :action => 'register'
+  %li
+    Register...
+    %ul
+      %li= link_to '...as a Site Manager', :action => 'register_site_manager'
+      %li= link_to '...as a Link Builder', :action => 'register_link_builder'
