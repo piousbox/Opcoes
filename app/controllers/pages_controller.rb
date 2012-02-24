@@ -35,4 +35,8 @@ class PagesController < ApplicationController
     
   end
   
+  def do_login
+    redirect_to :controller => :manager, :action => :dashboard
+  end
+  
 end

@@ -3,6 +3,7 @@ Opcoes::Application.routes.draw do
   
   get 'tour' => 'pages#tour'
   get 'login' => 'pages#login'
+  post 'do-login' => 'pages#do_login'
   
   # register manager
   
@@ -24,4 +25,7 @@ Opcoes::Application.routes.draw do
   # projects
   
   get 'projects' => 'projects#index'
+  get 'projects/:name_seo' => 'projects#show'
+  get 'projects/new' => 'projects#new'
+  post 'projects' => 'projects#create'
 end

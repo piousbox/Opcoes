@@ -1,3 +1,7 @@
 
 
 %h2 Project Index
+
+%ul
+  - @projects.each do |project|
+    %li= link_to project[:name], project_path(project)

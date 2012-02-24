@@ -20,6 +20,12 @@ class PagesControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  test 'post do-login' do
+    post :do_login
+    assert_response :redirect
+    assert_redirected_to :controller => :manager, :action => :dashboard
+  end
+  
   # manager
    
   test 'register site manager' do
