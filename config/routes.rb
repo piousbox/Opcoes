@@ -25,7 +25,7 @@ Opcoes::Application.routes.draw do
   # projects
   
   get 'projects' => 'projects#index'
-  get 'projects/:name_seo' => 'projects#show'
   get 'projects/new' => 'projects#new'
   post 'projects' => 'projects#create'
+  get 'projects/:name_seo' => 'projects#show'
 end

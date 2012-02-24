@@ -3,13 +3,6 @@
 class ProjectsController < ApplicationController
   
   def index
-    one = Project.new({:name => 'xxName Onexx', 
-        :name_seo => 'one'
-      })
-    two = Project.new({:name => 'xxName Twoxx',
-        :name_seo => 'two' 
-      })
-    @projects = [one, two]
     render :layout => 'manager'
     
   end

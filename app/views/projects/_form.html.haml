@@ -1,0 +1,21 @@
+
+
+= form_tag 'projects' do
+  .field
+    Target Url
+    = text_field_tag 'project[url]'
+  
+  .field
+    Keywords
+    = text_field_tag 'project[keywords]'
+
+  .field
+    Quantity
+    =text_field_tag 'project[quantity]'
+
+  .field
+    Assign to
+    =text_field_tag 'assign_to'
+
+  .action
+    = submit_tag 'Done!'
