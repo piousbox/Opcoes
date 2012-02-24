@@ -31,3 +31,11 @@ gem 'jquery-rails'
 gem "mongoid"
 gem "bson_ext"
 gem 'haml'
+
+group :development do
+  
+end
+
+group :test do
+  gem 'fabrication'
+end

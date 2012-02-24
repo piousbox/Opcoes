@@ -1,0 +1,25 @@
+
+
+%h2 Register as a Link Builder
+
+%p Select this option if you are looking to make money by building links.
+
+%p At the moment the only payment method we offer is Paypal. Your email is the Paypal id that the funds are deposited to.
+
+= form_tag 'process-link-builder' do
+
+  .field
+    Username
+    = text_field_tag 'actor[username]'
+
+  .field
+    Email
+    = text_field_tag 'actor[email]'
+
+  .field
+    Password
+    = password_field_tag 'actor[password]'
+    = password_field_tag 'actor[password_confirm]'
+
+  .action
+    = submit_tag 'Continue to Dashboard'
