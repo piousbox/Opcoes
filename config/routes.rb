@@ -20,4 +20,8 @@ Opcoes::Application.routes.draw do
   post 'process-link-builder' => 'pages#process_link_builder'  
   
   get 'builder/dashboard' => 'builder#dashboard'
+  
+  # projects
+  
+  get 'projects' => 'projects#index'
 end
