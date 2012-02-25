@@ -15,7 +15,7 @@
 
   .field
     Assign to
-    =text_field_tag 'assign_to'
+    =select 'project', 'assignee', options_for_select(@builders)
 
   .action
     = submit_tag 'Done!'

@@ -7,3 +7,9 @@
   %li= link_to 'Promote Myself', :action => :promote
 
 %h3 My projects
+- if @my_projects.blank?
+  No Projects
+- else
+  - @my_projects.each do |p|
+    p.inspect
+    %hr

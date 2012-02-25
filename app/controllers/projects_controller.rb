@@ -25,15 +25,21 @@ class ProjectsController < ApplicationController
   end
   
   def new
+    @builders = Actor.where(:is_manager => false).order([:username, :desc])
+    @builders = [['Random', nil]] + @builders.map { |b| [b.username, b.username] }
     
+    render :layout => 'manager'
   end
   
   def create
     actor = Actor.where(:username => 'piousbox').limit(1).first
+    builder = Actor.where(:username => params[:project][:assignee])
     begin
-      actor.projects.create!(params[:project])
+      @project = actor.projects.create(params[:project])
+      @project.builder = builder
     rescue
     end
+    
     redirect_to :controller => :manager, :action => :dashboard
   end
   
