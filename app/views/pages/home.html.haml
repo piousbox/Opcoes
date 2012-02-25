@@ -1,21 +1,28 @@
 
+.pages_home
+  %p Opcoes Is a service that lets you purchase reliably, and verify, backlinks.
 
-%h2 Opcoes
+  .presentation-slide
+    .span-3 &nbsp;
+    .span-6
+      .box.height-80-center= link_to 'Tour', :action => 'tour'
+    .span-6
+      .box.height-80-center= link_to 'Login', :action => 'login'
+    .span-6
+      .box.height-80-center
+        = link_to 'Register...', 'javascript: return false;'
+    .span-3 &nbsp;
 
-%p Opcoes Is a service that lets you purchase reliably, and verify, backlinks.
-
-%ul
-  %li= link_to 'Tour', :action => 'tour'
-  %li= link_to 'Login', :action => 'login'
-  %li
-    Register...
-    %ul
-      %li= link_to '...as a Site Manager', :controller => :manager, :action => :register
-      %li= link_to '...as a Link Builder', :controller => :builder, :action => :register
-
-%ul
-  %li
-    List of...
-    %ul
-      %li= link_to '...Link Builders', :controller => :builder, :action => :index
-      %li= link_to '...Managers', :controller => :manager, :action => :index
+  .presentation-slide
+    %p See the people already using it
+    .span-3 &nbsp;
+    .span-6
+      .box.height-20-center= link_to 'Link Builders', :controller => :builder, :action => :index
+    .span-6
+      .box.height-20-center= link_to 'Managers', :controller => :manager, :action => :index
+    .span-6
+      .box.height-20-center= link_to 'Projects', :controller => :projects, :action => :index
+    .span-3 &nbsp;
+          
+          
+          

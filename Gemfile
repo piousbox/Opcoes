@@ -31,6 +31,7 @@ gem 'jquery-rails'
 gem "mongoid"
 gem "bson_ext"
 gem 'haml'
+gem 'sass'
 
 group :development do
   

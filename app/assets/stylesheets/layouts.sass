@@ -1,0 +1,52 @@
+
+$menu_link_height: 40px
+$logo_padding: 20px
+
+.header
+  .logo
+    padding: $logo_padding
+    font-size: 3em
+    text-align: center
+    font-weight: bold
+
+    a
+      text-decoration: none
+      color: black
+  .menu
+    background: #f0c890
+    height: $menu_link_height
+    margin-bottom: $logo_padding
+    
+    a
+      height: $menu_link_height
+      line-height: $menu_link_height
+      padding: 10px
+
+    ul
+      margin: 0
+      padding: 0
+
+      li
+        display: inline
+
+    ul.main
+      float: left
+
+      li
+        margin-right: 10px
+    ul.meta
+      float: right
+
+      li
+        margin-left: 10px
+
+.footer
+  height: 200px
+  border-top: 3px solid #ccb088
+  padding-top: 10px
+  background: #fad6a3
+  color: #a9a6a2
+
+  .copyright
+    text-align: right
+    padding-right: 10px
