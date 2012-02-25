@@ -4,28 +4,34 @@ Opcoes::Application.routes.draw do
   get 'tour' => 'pages#tour'
   get 'login' => 'pages#login'
   post 'do-login' => 'pages#do_login'
+  get 'logout' => 'pages#logout'
   
   # register manager
   
-  post 'process-site-manager' => 'pages#process_site_manager'
-  post 'process-site-manager-2' => 'pages#process_site_manager_2'
+  post 'manager/process' => 'manager#process_registration'
+  post 'manager/process_2' => 'manager#process_registration_2'
   
-  get 'register-site-manager' => 'pages#register_site_manager'
-  get 'register-site-manager-2' => 'pages#register_site_manager_2'
+  get 'manager/register' => 'manager#register'
+  get 'manager/register_2' => 'manager#register_2'
   
   get 'manager/dashboard' => 'manager#dashboard'
+  get 'managers' => 'manager#index'
   
   # register builder
   
-  get 'register-link-builder' => 'pages#register_link_builder'
-  post 'process-link-builder' => 'pages#process_link_builder'  
+  get 'builder/register' => 'builder#register'
+  post 'builder/process' => 'builder#process_registration'  
   
   get 'builder/dashboard' => 'builder#dashboard'
+  get 'builder/promote' => 'builder#promote'
+  post 'builder/process_promote' => 'builder#process_promote'
+  
+  get 'builders' => 'builder#index'
   
   # projects
   
   get 'projects' => 'projects#index'
   get 'projects/new' => 'projects#new'
   post 'projects' => 'projects#create'
-  get 'projects/:name_seo' => 'projects#show'
+  get 'projects/:_id' => 'projects#show'
 end

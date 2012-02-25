@@ -2,4 +2,15 @@
 
 %h3
   Showing project 
-  = @project[:name]
+  = @project[:url]
+
+%h4 Links
+%ul
+  - if @project.links.blank?
+    %li No links
+  - else
+    - @project.links.each do |link|
+      %li
+        = link.url
+        &nbsp; &nbsp;
+        = link.is_active

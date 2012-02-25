@@ -11,8 +11,9 @@ class ProjectsController < ApplicationController
     username = 'piousbox'
     user = Actor.where(:username => username).limit(1).first
 #    project_one = Project.create(:name => 'name', :name_seo => 'name_seo', :actor => user)
-    @project = Actor.where(:username => username).limit(1).first.projects.where(:name_seo => params[:name_seo]).limit(1).first
+    @project = Actor.where(:username => username).limit(1).first().projects.where(:_id => params[:_id]).limit(1).first()
     
+    render :layout => 'manager'
   end
   
   def edit
@@ -28,7 +29,12 @@ class ProjectsController < ApplicationController
   end
   
   def create
-    
+    actor = Actor.where(:username => 'piousbox').limit(1).first
+    begin
+      actor.projects.create!(params[:project])
+    rescue
+    end
+    redirect_to :controller => :manager, :action => :dashboard
   end
   
   def destroy

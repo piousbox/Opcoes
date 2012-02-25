@@ -4,7 +4,7 @@
 
 %p Select this option if you have a site that you promote, if you are looking to buy backlinks, and if you are looking to spend (not make) money using this service.
 
-= form_tag 'process-site-manager' do
+= form_tag({:action => :process_registration}) do
 
   .field
     Username

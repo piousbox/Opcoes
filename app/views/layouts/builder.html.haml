@@ -7,11 +7,11 @@
     = csrf_meta_tags
   %body
     %h5
-      Manager
-      = session[:manager][:username]
+      Builder 
+      = session[:builder][:username]
       [
       = link_to 'Logout', :controller => :pages, :action => :logout
       ]
     %ul
-      %li= link_to 'Dashboard home', :controller => :manager, :action => :dashboard
+      %li= link_to 'Dashboard home', :controller => :builder, :action => :dashboard
     = yield

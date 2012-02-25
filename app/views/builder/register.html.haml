@@ -6,7 +6,7 @@
 
 %p At the moment the only payment method we offer is Paypal. Your email is the Paypal id that the funds are deposited to.
 
-= form_tag 'process-link-builder' do
+= form_tag({:action => :process_registration}) do
 
   .field
     Username

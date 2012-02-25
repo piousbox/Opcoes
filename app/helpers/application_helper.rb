@@ -1,6 +1,6 @@
 module ApplicationHelper
   
   def project_path project
-    '/projects/' + project[:name_seo]
+    '/projects/' + project[:_id].to_s
   end
 end

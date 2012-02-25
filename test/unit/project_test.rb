@@ -16,4 +16,8 @@ class ProjectTest < ActiveSupport::TestCase
     assert_not_nil first
     assert_not_nil first[:name]
   end
+  
+  test 'put timestamps into projects' do
+    assert false, 'todo'
+  end
 end

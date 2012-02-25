@@ -4,7 +4,7 @@
 
 %p Please enter credit card details (you will be only charged for the work done, with option for refund).
 
-= form_tag 'process-site-manager-2' do
+= form_tag({:action => :process_registration_2}) do
 
   .field
     Name on card
