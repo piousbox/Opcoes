@@ -32,11 +32,9 @@ class ProjectsController < ApplicationController
   end
   
   def create
-    actor = Actor.where(:username => 'piousbox').limit(1).first
-    builder = Actor.where(:username => params[:project][:assignee])
+    actor = Actor.where(:username => session[:manager][:username]).limit(1).first
     begin
       @project = actor.projects.create(params[:project])
-      @project.builder = builder
     rescue
     end
     

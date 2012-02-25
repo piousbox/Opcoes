@@ -5,7 +5,7 @@ class BuilderController < ApplicationController
   def dashboard
     
     begin
-      @my_projects = Actor.where('project.builder_username' => session[:builder][:username]).limit(1).first()
+      @my_projects = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first()
       @my_projects = @my_projects.projects
     rescue
     end
