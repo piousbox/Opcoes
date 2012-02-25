@@ -10,11 +10,15 @@
       .box.height-80-center= link_to 'Login', :action => 'login'
     .span-6
       .box.height-80-center
-        = link_to 'Register...', 'javascript: return false;'
+        %span.menu_register_hover_2.relative=link_to 'Register...', '#'
+        .absolute.hide.menu_register_content_2
+          %ul
+            %li.box= link_to 'As a Link Builder', :controller => :builder, :action => :register
+            %li.box= link_to 'As a Site Manager', :controller => :manager, :action => :register
     .span-3 &nbsp;
 
   .presentation-slide
-    %p See the people already using it
+    %p See the people already using it.
     .span-3 &nbsp;
     .span-6
       .box.height-20-center= link_to 'Link Builders', :controller => :builder, :action => :index

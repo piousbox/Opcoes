@@ -12,17 +12,34 @@
         .menu
           %ul.main
             %li= link_to 'Home', '/'
-            %li= link_to 'About Us', '/about'
+            %li= link_to 'About Us', :controller => :pages, :action => :about_us
           %ul.meta
-            %li= link_to 'Register...', '/register'
+            %li
+              %span.menu_register_hover.relative=link_to 'Register...', '#'
+              .absolute.hide.box.menu_register_content
+                %ul
+                  %li= link_to 'As a Link Builder', :controller => :builder, :action => :register
+                  %li= link_to 'As a Site Manager', :controller => :manager, :action => :register
             %li= link_to 'Login', '/sign-in'
           .clear
         .clear
 
       .content
         = yield
+
+      .clear
       .footer
-        .copyright Copyright &copy; 2012 CAC
-      
+        .menu
+          .span-8
+            %ul
+              %li= link_to 'to Top', '#'
+          .span-8
+            %ul
+              %li= link_to 'Home', '/'
+              %li= link_to 'About Us', :controller => :pages, :action => :about_us
+              %li= link_to 'Privacy Policy', :controller => :pages, :action => :privacy
+          .span-8.last
+            .copyright Copyright &copy; 2012 CAC
+
       
       

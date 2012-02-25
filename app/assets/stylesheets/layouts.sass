@@ -1,6 +1,14 @@
 
 $menu_link_height: 40px
 $logo_padding: 20px
+$background_1: #fad6a3
+
+a:link
+  color: #e48a09 
+a:active
+  color: #ffbb5b
+a:visited
+  color: #ed8c3e
 
 .header
   .logo
@@ -13,7 +21,7 @@ $logo_padding: 20px
       text-decoration: none
       color: black
   .menu
-    background: #f0c890
+    background: $background_1
     height: $menu_link_height
     margin-bottom: $logo_padding
     
@@ -44,8 +52,18 @@ $logo_padding: 20px
   height: 200px
   border-top: 3px solid #ccb088
   padding-top: 10px
-  background: #fad6a3
+  background: $background_1
   color: #a9a6a2
+
+  .menu
+    ul
+      li
+        list-style-type: none
+        a
+          border-bottom: 2px solid #ccb088
+          width: 200px
+          text-decoration: none
+          display: block
 
   .copyright
     text-align: right

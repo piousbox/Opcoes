@@ -10,6 +10,18 @@ class PagesControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  test 'about-us' do
+    get :about_us
+    assert_response :success
+    assert_template :about_us
+  end
+  
+  test 'privacy' do
+    get :privacy
+    assert_response :success
+    assert_template :privacy
+  end
+  
   test 'tour' do
     get :tour
     assert_response :success

@@ -11,6 +11,14 @@ class PagesController < ApplicationController
     
   end
   
+  def about_us
+    
+  end
+  
+  def privacy
+    
+  end
+  
   def do_login
     redirect_to :controller => :manager, :action => :dashboard
   end
