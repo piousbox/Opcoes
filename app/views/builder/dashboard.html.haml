@@ -11,10 +11,14 @@
   No Projects
 - else
   - @my_projects.each do |p|
+    = link_to 'Add Links', :controller => :projects, :action => :add_links, :_id => p._id.to_s
+    = link_to 'Project', :controller => :projects, :action => :show, :_id => p._id.to_s
     url: 
-    = p.url
+    = link_to p.url, p.url
     keywords:
     = p.keywords
     Quantity:
     = p.quantity
+    
+    
     %br

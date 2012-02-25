@@ -8,10 +8,8 @@ class ProjectsController < ApplicationController
   end
   
   def show
-    username = 'piousbox'
-    user = Actor.where(:username => username).limit(1).first
 #    project_one = Project.create(:name => 'name', :name_seo => 'name_seo', :actor => user)
-    @project = Actor.where(:username => username).limit(1).first().projects.where(:_id => params[:_id]).limit(1).first()
+    @project = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first().projects.where(:_id => params[:_id]).limit(1).first()
     
     render :layout => 'manager'
   end
@@ -41,7 +39,25 @@ class ProjectsController < ApplicationController
     redirect_to :controller => :manager, :action => :dashboard
   end
   
+  def add_links
+    puts params[:_id]
+    @project = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first().projects.where('_id' => params[:_id]).limit(1).first()
+    
+    render :layout => 'builder'
+  end
+  
   def destroy
     
+  end
+  
+  def process_add_links
+    project = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first().projects.where('_id' => params[:_id]).limit(1).first()
+    project.links = []
+    (0...project[:quantity]).each do |i|
+      puts params[:links][i.to_s]
+      project.links << Link.new(:url => params[:links][i.to_s])
+    end
+    project.save
+    redirect_to :controller => :builder, :action => :dashboard
   end
 end

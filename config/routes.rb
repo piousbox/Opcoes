@@ -27,6 +27,7 @@ Opcoes::Application.routes.draw do
   post 'builder/process_promote' => 'builder#process_promote'
   
   get 'builders' => 'builder#index'
+   
   
   # projects
   
@@ -34,4 +35,6 @@ Opcoes::Application.routes.draw do
   get 'projects/new' => 'projects#new'
   post 'projects' => 'projects#create'
   get 'projects/:_id' => 'projects#show'
+  get 'projects/:_id/add_links' => 'projects#add_links'
+  post 'projects/:_id/process_add_links' => 'projects#process_add_links'
 end
