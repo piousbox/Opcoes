@@ -13,4 +13,7 @@
       %li
         = link.url
         &nbsp; &nbsp;
-        = link.is_active
+        - if link.is_active
+          %span.verified Verified
+        - else
+          %span.not_verified Not Verified

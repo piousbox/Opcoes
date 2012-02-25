@@ -17,3 +17,10 @@
 .field {
   margin-top: 5px;
 }
+
+.verified {
+  color: green;
+}
+.not_verified {
+  color: red;
+}

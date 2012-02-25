@@ -20,6 +20,6 @@
 %p Let's get started!
 
 %ul
-  %li= link_to 'As a link builder', :action => 'register_link_builder'
-  %li= link_to 'As a site manager', :action => 'register_site_manager'
+  %li= link_to 'As a link builder', :controller => :builder, :action => 'register'
+  %li= link_to 'As a site manager', :controller => :manager, :action => 'register'
 

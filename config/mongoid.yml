@@ -1,9 +1,13 @@
-development:
+local-development:
   host: localhost
   database: opcoes_development
 
+development:
+  host: piousbox.com
+  database: opcoes_development
+
 test:
-  host: localhost
+  host: piousbox.com
   database: opcoes_test
 
 # set these environment variables on your prod server
