@@ -34,7 +34,7 @@ class BuilderController < ApplicationController
   def index
     @builders = Actor.where(:is_manager => false)
     
-    render :layout => 'application'
+   
   end
   
 end

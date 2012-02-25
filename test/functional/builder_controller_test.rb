@@ -12,4 +12,19 @@ class BuilderControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :dashboard
   end
+  
+  test 'index' do
+    get :index
+    assert_response :success
+    assert_template :index
+    
+    builders = assigns :builders
+    assert_not_nil builders
+  end
+  
+  test 'register' do
+    get :register
+    assert_response :success
+    assert_template :register
+  end
 end

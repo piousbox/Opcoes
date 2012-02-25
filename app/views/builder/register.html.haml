@@ -1,10 +1,10 @@
 
 
-%h2 Register as a Link Builder
+%h1 Register as a Builder
 
 %p Select this option if you are looking to make money by building links.
-
-%p At the moment the only payment method we offer is Paypal. Your email is the Paypal id that the funds are deposited to.
+%p At the moment the only payment method we offer is Paypal.
+%p Your email is the Paypal id that the funds are deposited to.
 
 = form_tag({:action => :process_registration}) do
 
@@ -19,7 +19,11 @@
   .field
     Password
     = password_field_tag 'actor[password]'
+  .field
+    Confirm Password
     = password_field_tag 'actor[password_confirm]'
 
   .action
     = submit_tag 'Continue to Dashboard'
+
+.height-100

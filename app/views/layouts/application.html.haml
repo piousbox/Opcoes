@@ -12,7 +12,7 @@
         .menu
           %ul.main
             %li= link_to 'Home', '/'
-            %li= link_to 'About Us', :controller => :pages, :action => :about_us
+            %li= link_to 'Dashboard', :controller => :manager, :action => :dashboard
           %ul.meta
             %li
               %span.menu_register_hover.relative=link_to 'Register...', '#'
@@ -33,11 +33,15 @@
           .span-8
             %ul
               %li= link_to 'to Top', '#'
+              %li= link_to 'List Projects', :controller => :projects, :action => :index
+              %li= link_to 'List Builders', :controller => :builder, :action => :index
+              %li= link_to 'List Managers', :controller => :manager, :action => :index
           .span-8
             %ul
               %li= link_to 'Home', '/'
               %li= link_to 'About Us', :controller => :pages, :action => :about_us
               %li= link_to 'Privacy Policy', :controller => :pages, :action => :privacy
+              %li= link_to 'Builder', :controller => :builder, :action => :dashboard
           .span-8.last
             .copyright Copyright &copy; 2012 CAC
 

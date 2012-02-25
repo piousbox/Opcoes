@@ -1,6 +1,6 @@
 
 
-%h2 Login
+%h1 Login
 
 = form_tag 'do-login' do
 
@@ -14,3 +14,7 @@
 
   .action
     = submit_tag 'Login'
+
+%ul
+  %li=link_to 'Forgot your password?', '/forgot-your-password'
+  %li=link_to 'Register', '/register'

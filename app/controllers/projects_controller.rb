@@ -3,7 +3,6 @@
 class ProjectsController < ApplicationController
   
   def index
-    render :layout => 'manager'
     
   end
   
@@ -11,7 +10,6 @@ class ProjectsController < ApplicationController
 #    project_one = Project.create(:name => 'name', :name_seo => 'name_seo', :actor => user)
     @project = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first().projects.where(:_id => params[:_id]).limit(1).first()
     
-    render :layout => 'manager'
   end
   
   def edit
@@ -25,8 +23,6 @@ class ProjectsController < ApplicationController
   def new
     @builders = Actor.where(:is_manager => false).order([:username, :desc])
     @builders = [['Random', nil]] + @builders.map { |b| [b.username, b.username] }
-    
-    render :layout => 'manager'
   end
   
   def create
@@ -42,8 +38,6 @@ class ProjectsController < ApplicationController
   def add_links
     puts params[:_id]
     @project = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first().projects.where('_id' => params[:_id]).limit(1).first()
-    
-    render :layout => 'builder'
   end
   
   def destroy

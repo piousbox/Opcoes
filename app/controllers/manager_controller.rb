@@ -23,20 +23,17 @@ class ManagerController < ApplicationController
   
   def register
     
-    render :layout => 'application'
+    
     
   end
   
   def register_2
-    
-    render :layout => 'application'
     
   end
   
   def index
     @managers = Actor.where(:is_manager => true)
     
-    render :layout => 'application'
   end
   
 end

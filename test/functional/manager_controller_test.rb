@@ -12,4 +12,10 @@ class ManagerControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :dashboard
   end
+  
+  test 'register' do
+    get :register
+    assert_response :success
+    assert_template :register
+  end
 end

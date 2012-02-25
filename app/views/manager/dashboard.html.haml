@@ -1,9 +1,10 @@
 
 
-%h2 Dashboard of Manager
+%h1 Dashboard of Manager
 
+.span-18
+  = render 'projects/index'
 
-= render 'projects/index'
-
-%ul
-  %li= link_to 'New Project', :controller => :projects, :action => :new
+.span-6.last
+  %ul
+    %li= link_to 'New Project', :controller => :projects, :action => :new
