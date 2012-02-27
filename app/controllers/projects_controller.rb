@@ -8,7 +8,8 @@ class ProjectsController < ApplicationController
   
   def show
 #    project_one = Project.create(:name => 'name', :name_seo => 'name_seo', :actor => user)
-    @project = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first().projects.where(:_id => params[:_id]).limit(1).first()
+    @project = Actor.where('username' => session[:manager][:username]).limit(1).first().
+      projects.where(:_id => params[:_id]).limit(1).first()
     
   end
   
