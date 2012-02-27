@@ -3,8 +3,7 @@
 class ManagerController < ApplicationController
   
   def dashboard
-    username = 'piousbox'
-    @projects = Actor.where(:username => username).limit(1).first().projects.all()
+    @projects = Actor.where(:username => session[:manager][:username]).limit(1).first().projects.all()
   end
   
   def process_registration
