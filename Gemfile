@@ -40,3 +40,7 @@ end
 group :test do
   gem 'fabrication'
 end
+
+gem 'passenger'
+gem 'therubyracer', :platforms => :ruby
+gem 'execjs'
