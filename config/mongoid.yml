@@ -10,6 +10,6 @@ test:
   host: piousbox.com
   database: opcoes_test
 
-development:
+production:
   host: piousbox.com
   database: opcoes_development

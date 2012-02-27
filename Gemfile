@@ -28,7 +28,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug'
 
-gem "mongoid"
+gem "mongoid", ' ~> 2.4.5'
 gem "bson_ext"
 gem 'haml'
 gem 'sass'
