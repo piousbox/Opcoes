@@ -53,6 +53,4 @@
                 Logged in builder is
                 = link_to( session[:builder][:username], :controller => :builder, :action => :dashboard ) unless session[:builder].blank?
             .copyright Copyright &copy; 2012 CAC
-
-      
-      
+    = render 'analytics'
