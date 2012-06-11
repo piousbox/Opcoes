@@ -3,7 +3,7 @@
 Fabricator(:project) do
   name 'xxProject Namexx'
   url 'http://google.com'
-  _id 'abc123'
+  _id '1'
   
   
 end
