@@ -1,9 +1,7 @@
 
 
-Fabricator(:project) do
-  name 'xxProject Namexx'
-  url 'http://google.com'
-  _id '1'
-  
+Fabricator(:project, :class_name => :project) do
+  url 'test url'
+  _id BSON::ObjectId('4d892bfe6bcaff4ffd000001')
   
 end

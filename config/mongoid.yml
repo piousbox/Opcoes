@@ -7,7 +7,7 @@ development:
   database: opcoes_development
 
 test:
-  host: piousbox.com
+  host: localhost
   database: opcoes_test
 
 production:

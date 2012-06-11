@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
   setup do
-    @one = Fabricate(:project)
+    @manager = Fabricate(:manager)
   end
   
   test 'index' do
@@ -37,6 +37,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
   
   test 'show' do
+    id = 555
     get :show, :_id => id
     assert_response :success
     assert_template :show

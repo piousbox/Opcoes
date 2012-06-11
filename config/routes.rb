@@ -1,4 +1,6 @@
 Opcoes::Application.routes.draw do
+  devise_for :actors
+
   root :to => 'pages#home'
   
   get 'tour' => 'pages#tour'
