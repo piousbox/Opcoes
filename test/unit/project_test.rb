@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ProjectTest < ActiveSupport::TestCase
   setup do
-    @one = Fabricate(:project)
+#    @one = Fabricate(:project)
   end
   
   test 'sanity' do

@@ -8,6 +8,13 @@ class BuilderControllerTest < ActionController::TestCase
   end
   
   test 'dashboard' do
+    session[:builder] = nil
+    assert_nil session[:builder]
+    get :dashboard
+    assert_redirect '/sign-in'
+    
+    session[:builder] = {}
+    session[:builder][:username] = 'builder_username'
     get :dashboard
     assert_response :success
     assert_template :dashboard

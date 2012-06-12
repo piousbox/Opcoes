@@ -2,7 +2,7 @@
 
 class BuilderController < ApplicationController
   
-  before_filter :authenticate_user!
+  before_filter :authenticate_actor!
   
   def dashboard
     @actor = Actor.where(:username => session[:builder][:username])
