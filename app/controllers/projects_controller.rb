@@ -2,6 +2,8 @@
 
 class ProjectsController < ApplicationController
   
+  before_filter :authenticate_actor!
+  
   def index
     
   end
@@ -11,6 +13,7 @@ class ProjectsController < ApplicationController
     @project = Actor.where('username' => session[:manager][:username]).limit(1).first().
       projects.where(:_id => params[:_id]).limit(1).first()
     
+    authorize! :read, @project
   end
   
   def edit

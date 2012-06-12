@@ -12,7 +12,7 @@ class ProjectTest < ActiveSupport::TestCase
   end
   
   test 'has fields: name, ' do
-    first = Project.find(:first)
+    first = Actor.find(:first).projects.find(:first)
     assert_not_nil first
     assert_not_nil first[:name]
   end

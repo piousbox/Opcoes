@@ -30,11 +30,11 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_response :success
   end
   
-  test 'create' do
-    post :create
-    assert_response :redirect
-    assert_redirected_to :action => :show
-  end
+#  test 'create' do
+#    post :create
+#    assert_response :redirect
+#    assert_redirected_to :action => :show
+#  end
   
   test 'show' do
     id = 555

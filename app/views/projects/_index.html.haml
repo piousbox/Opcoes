@@ -3,6 +3,10 @@
 
 %h2 Project Index
 
-%ul
-  - @projects.each do |project|
-    %li= link_to project[:url], project_path(project)
+- if @projects
+  %ul
+    - @projects.each do |project|
+      %li= link_to project[:url], project_path(project)
+- else
+  %ul
+    %li No Projects
