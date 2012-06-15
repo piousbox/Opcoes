@@ -7,12 +7,13 @@
   .span-6
     &nbsp;
   .span-6
-    Square picture
+    .square-picture
   .span-6
     %h3 Opcoes is the service for building and maintaining reliable backlinks.
   .span-6.last
     &nbsp;
   .clear
+  .height-50
 
   .horizontal-space1
     %ul.center.tour
@@ -32,13 +33,12 @@
 
   .presentation-slide
     %h2 How it works
-    %ul
-      %ol As the manager, first set up your account
-      %ol Start a task: URL, anchor words, number of links [commit to buy]
-      %ol Our providers fulfill the task. You can monitor the progress on the dashboard
-      %ol Inevitably, some of the links go down. Our system detects that and sends the task back to providers. Therefore the needed number of links is maintained.
-      %ol Register now!
-
+    = render 'how_it_works', :text => 'As the manager, first set up your account'
+    = render 'how_it_works', :text => 'Start a task: URL, anchor words, number of links [commit to buy]'
+    = render 'how_it_works', :text => 'Our providers fulfill the task. You can monitor the progress on the dashboard'
+    = render 'how_it_works', :text => 'Inevitably, some of the links go down. Our system detects that and sends the task back to providers. Therefore the needed number of links is maintained.'
+  .clear
+   
   .presentation-slide
     %h2 Pricing
     %p We offer backlinks at $0.5 per month. That means that for e.g. $10/mo you will have 20 backlinks that are guarantee to be up.
