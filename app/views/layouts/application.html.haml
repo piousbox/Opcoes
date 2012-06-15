@@ -8,23 +8,16 @@
   %body
     .container
       .header
-        .logo= link_to 'Opções', '/' 
         .menu
-          %ul.main
-            %li= link_to 'Home', '/'
-            - unless session[:manager].blank?
-              %li= link_to 'Manager Dashboard', :controller => :manager, :action => :dashboard
-            - unless session[:builder].blank?
-              %li= link_to 'Builder Dashboard', :controller => :builder, :action => :dashboard
-          %ul.meta
-            %li
-              %span.menu_register_hover.relative=link_to 'Register...', '#'
-              .absolute.hide.box.menu_register_content
-                %ul
-                  %li= link_to 'As a Link Builder', :controller => :builder, :action => :register
-                  %li= link_to 'As a Site Manager', :controller => :manager, :action => :register
-            %li= link_to 'Login', '/sign-in'
-          .clear
+          %ul
+            - if session[:manager].blank? && session[:builder].blank?
+              %li= link_to 'Sign In', '/sign-in'
+              %li= link_to 'Register', :controller => :manager, :action => :register
+            - elsif !session[:manager].blank?
+              %li= link_to 'Dashboard', :controller => :manager, :action => :dashboard
+            - elsif !session[:builder].blank?
+              %li= link_to 'dashboard', :controller => :builder, :action => :dashboard
+        .logo= link_to 'Opções', '/' 
         .clear
 
       .content

@@ -1,9 +1,6 @@
-local-development:
-  host: localhost
-  database: opcoes_development
 
 development:
-  host: piousbox.com
+  host: localhost
   database: opcoes_development
 
 test:
@@ -11,5 +8,5 @@ test:
   database: opcoes_test
 
 production:
-  host: piousbox.com
+  host: localhost
   database: opcoes_development
