@@ -2,6 +2,7 @@
 $menu_link_height: 40px
 $logo_padding: 20px
 $background_1: #fad6a3
+$border: 3px solid red
 
 a:link
   color: #e48a09 
@@ -10,8 +11,16 @@ a:active
 a:visited
   color: #ed8c3e
 
+.container
+  position: relative
+.content
+  position: relative
+
 .header
   background: $background_1
+  position: fixed
+  z-index: 100
+  border-bottom: $border
 
   .logo
     
@@ -43,11 +52,21 @@ a:visited
     ul.main
       li
         margin-right: 10px
-        
+
+
+.menu-bordered
+  ul
+    list-style-type: none
+
+    li
+      border-bottom: $border
+
+      a
+        text-decoration: none
 
 .footer
   height: 200px
-  border-top: 3px solid #ccb088
+  border-top: $border
   padding-top: 10px
   background: $background_1
   color: #a9a6a2
