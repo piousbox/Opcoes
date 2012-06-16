@@ -28,26 +28,25 @@
         = yield
 
       .clear
-      .footer
-        .menu
-          .span-8
-            %ul.menu-bordered
-              %li= link_to 'to Top', '#'
-              %li= link_to 'List Projects', :controller => :projects, :action => :index
-              %li= link_to 'List Builders', :controller => :builder, :action => :index
-              %li= link_to 'List Managers', :controller => :manager, :action => :index
-          .span-8
-            %ul.menu-bordered
-              %li= link_to 'Home', '/'
-              %li= link_to 'About Us', :controller => :pages, :action => :about_us
-              %li= link_to 'Privacy Policy', :controller => :pages, :action => :privacy
-          .span-8.last
-            %ul
-              %li
-                Logged in manager is
-                = link_to( session[:manager][:username], :controller => :manager, :action => :dashboard ) unless session[:manager].blank?
-              %li
-                Logged in builder is
-                = link_to( session[:builder][:username], :controller => :builder, :action => :dashboard ) unless session[:builder].blank?
-            .copyright Copyright &copy; 2012 CAC
+      .footer.menu
+        .span-1
+          &nbsp;
+        .span-7.menu-bordered
+          %ul
+            %li= link_to 'to Top', '#'
+            %li= link_to 'List Projects', :controller => :projects, :action => :index
+            %li= link_to 'List Builders', :controller => :builder, :action => :index
+            %li= link_to 'List Managers', :controller => :manager, :action => :index
+        .span-8.menu-bordered
+          %ul
+            %li= link_to 'Home', '/'
+            %li= link_to 'About Us', :controller => :pages, :action => :about_us
+            %li= link_to 'Privacy Policy', :controller => :pages, :action => :privacy
+        .span-8.last
+          &nbsp;
+        .clear
+        .span-24
+          .copyright
+            Copyright &copy; 2012 CAC
+        .height-100
     = render 'analytics'

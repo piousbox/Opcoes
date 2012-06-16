@@ -31,6 +31,7 @@
     %li= link_to 'Register', '/'
   .clear
 
+  %a{:name => 'how_it_works' }
   .presentation-slide
     %h2 How it works
     = render 'how_it_works', :text => 'As the manager, first set up your account'
@@ -38,21 +39,21 @@
     = render 'how_it_works', :text => 'Our providers fulfill the task. You can monitor the progress on the dashboard'
     = render 'how_it_works', :text => 'Inevitably, some of the links go down. Our system detects that and sends the task back to providers. Therefore the needed number of links is maintained.'
   .clear
-   
+  
+  %a{:name => 'pricing' }
   .presentation-slide
     %h2 Pricing
     %p We offer backlinks at $0.5 per month. That means that for e.g. $10/mo you will have 20 backlinks that are guarantee to be up.
 
   %ul.center.tour
-    
     %li= link_to 'Register Now', '/'
   .clear
 
   .height-300
 
-.menu-anchor.menu-bordered
+.menu-anchor.menu-bordered.menu
   %ul
-    %li= link_to 'Top', '#'
-    %li= link_to 'How it works', '#how_it_works'
-    %li= link_to 'Pricing', '#pricing'
+    %li= link_to 'Top', '#', :class => 'top'
+    %li= link_to 'How it works', '#how_it_works', :class => 'how_it_works'
+    %li= link_to 'Pricing', '#pricing', :class => 'pricing'
     %li= link_to 'Register', '/register'

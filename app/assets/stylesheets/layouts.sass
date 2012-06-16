@@ -3,6 +3,7 @@ $menu_link_height: 40px
 $logo_padding: 20px
 $background_1: #fad6a3
 $border: 3px solid red
+$border_gray: 3px solid gray
 
 a:link
   color: #e48a09 
@@ -42,9 +43,6 @@ a:visited
       padding: 10px
 
     ul
-      margin: 0
-      padding: 0
-
       li
         display: inline
         float: right
@@ -53,19 +51,48 @@ a:visited
       li
         margin-right: 10px
 
+.menu
+  ul
+    margin: 0
+    padding: 0
 
 .menu-bordered
   ul
     list-style-type: none
 
     li
-      border-bottom: $border
+      margin-bottom: .4em
 
       a
+        padding-left: .5em
+        height: 3em
+        line-height: 3em
         text-decoration: none
+        background: $background_1
+
+        width: 10em - .5em
+        display: block
+        border-bottom: $border
+        
+.menu-anchor
+  position: fixed
+  top: 100px
+  margin-left: -11em
+  width: 10em
+
+ul.tour
+  li
+    display: inline
+    margin-right: .5em
+
+    a
+      border: 1px solid grey
+      padding: .8em
+      background: $background_1
+
+
 
 .footer
-  height: 200px
   border-top: $border
   padding-top: 10px
   background: $background_1
@@ -74,9 +101,8 @@ a:visited
   .menu
     ul
       li
-        list-style-type: none
         a
-          border-bottom: 2px solid #ccb088
+          
           width: 200px
           text-decoration: none
           display: block
@@ -84,3 +110,11 @@ a:visited
   .copyright
     text-align: right
     padding-right: 10px
+
+.presentation-slide
+  padding-top: 50px
+  height: 350px
+
+.box
+  background: #fad298
+
