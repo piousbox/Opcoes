@@ -28,7 +28,8 @@ module ApplicationHelper
     end
   end
   
-  def sign_out_path
-    return '/actors/sign_out'
+  def sign_out_link
+    link_to 'Sign Out', '/actors/sign_out', :method => :delete
   end
+  
 end
