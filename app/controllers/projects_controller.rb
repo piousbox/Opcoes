@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
   end
   
   def create
-    actor = Actor.where(:username => session[:manager][:username]).limit(1).first
+    actor = Actor.where(:email => current_actor[:email]).limit(1).first
     begin
       @project = actor.projects.create(params[:project])
     rescue

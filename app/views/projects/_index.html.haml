@@ -1,12 +1,10 @@
 
-
-
-%h2 Project Index
-
+%table
 - if @projects
-  %ul
-    - @projects.each do |project|
-      %li= link_to project[:url], project_path(project)
+  - @projects.map do |project|
+    %tr
+      %td= project.url
+      %td= project.keywords
+      %td= project.quantity
 - else
-  %ul
-    %li No Projects
+  No Projects
