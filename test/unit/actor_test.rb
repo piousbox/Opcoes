@@ -5,15 +5,15 @@
 require 'test_helper'
 
 class ActorTest < ActiveSupport::TestCase
+  
   setup do
-    @a1 = Fabricate(:actor)
+    @a1 = Fabricate.build(:actor)
   end
   
   test 'set manager' do
-    email = 'some_email@gmail.com'
-    assert_false @a1[:is_manager]
-    Actor.set_manager(email)
-    new_actor = Actor.find_by(:email => email)
+    assert !@a1[:is_manager]
+    Actor.set_manager(@a1[:email])
+    new_actor = Actor.find_by(:email => @a1[:email])
     assert new_actor[:is_manager]
   end
   
