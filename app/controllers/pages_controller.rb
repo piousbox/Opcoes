@@ -1,5 +1,14 @@
 class PagesController < ApplicationController
   def home
+    if actor_signed_in?
+
+      if current_actor[:is_manager]
+        render 'manager/dashboard'
+      else
+        render 'builder/dashboard'
+      end
+      
+    end
     
   end
   

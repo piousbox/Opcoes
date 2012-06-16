@@ -1,6 +1,9 @@
 Opcoes::Application.routes.draw do
   
-  devise_for :actors, :controllers => { :sessions => "sessions" }
+  devise_for :actors, :controllers => {
+    :sessions => "sessions",
+    :registrations => "registrations"
+  }
   
   # pages
   root :to => 'pages#home'

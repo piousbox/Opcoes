@@ -12,7 +12,7 @@
           %ul
             - if actor_signed_in?
               %li= sign_out_link
-              %li= link_to 'Dashboard', dashboard_path
+              %li= dashboard_link
             - else
               %li= link_to 'Sign In', sign_in_path
               %li= link_to 'Register', register_path

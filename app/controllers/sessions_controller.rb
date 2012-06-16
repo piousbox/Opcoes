@@ -1,15 +1,18 @@
 
 
-class SessionsController < Devise::RegistrationsController
+class SessionsController < Devise::SessionsController
 #  def new
 #    super
 #  end
-#
-#  def create
-#    # add custom create logic here
-#  end
-#
-#  def update
-#    super
-#  end
+
+  # sign in
+  def create
+    super
+    
+    Actor.find_by(:email => current_actor[:email]) do |actor|
+      actor[:is_manager] = true
+      actor.save
+    end
+  end
+
 end 
