@@ -5,12 +5,7 @@ Opcoes::Application.routes.draw do
     :registrations => "registrations"
   }
   
-  # pages
   root :to => 'pages#home'
-  get 'tour' => 'pages#tour'
-  get 'login' => 'pages#login'
-  post 'do-login' => 'pages#do_login'
-  get 'logout' => 'pages#logout'
   get 'about-us' => 'pages#about_us'
   get 'privacy-policy' => 'pages#privacy'
   

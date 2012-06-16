@@ -12,11 +12,6 @@ class RegistrationsController < Devise::RegistrationsController
     
     Actor.set_manager(current_actor[:email])
     
-    Actor.where(:email => current_actor[:email]).first do |actor|
-      actor[:is_manager] = true
-      actor.save
-    end
-    
   end
 
 end 

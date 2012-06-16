@@ -4,10 +4,6 @@ class ProjectsController < ApplicationController
   
   before_filter :authenticate_actor!
   
-  def index
-    
-  end
-  
   def show
 #    project_one = Project.create(:name => 'name', :name_seo => 'name_seo', :actor => user)
     @project = Actor.where('username' => session[:manager][:username]).limit(1).first().

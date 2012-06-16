@@ -1,21 +1,11 @@
 
 
-= form_tag '/projects' do
-  .field
-    Target Url
+= form_tag '/projects' do |ff|
+  .relative
+    = label :project, :url
     = text_field_tag 'project[url]'
-  
-  .field
-    Keywords
+    = label :project, :keywords
     = text_field_tag 'project[keywords]'
-
-  .field
-    Quantity
-    =text_field_tag 'project[quantity]'
-
-  .field
-    Assign to
-    =select 'project', 'builder_username', options_for_select(@builders)
-
-  .action
-    = submit_tag 'Done!'
+    = label :project, :quantity
+    = text_field_tag 'project[quantity]'
+    = submit_tag 'Start!'

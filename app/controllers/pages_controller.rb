@@ -1,22 +1,15 @@
 class PagesController < ApplicationController
+  
   def home
     if actor_signed_in?
 
       if current_actor[:is_manager]
-        render 'manager/dashboard'
+        redirect_to :controller => :manager, :action => :dashboard
       else
-        render 'builder/dashboard'
+        redirect_to :controller => :builder, :action => :dashboard
       end
       
     end
-    
-  end
-  
-  def tour
-    
-  end
-  
-  def login
     
   end
   
@@ -26,14 +19,6 @@ class PagesController < ApplicationController
   
   def privacy
     
-  end
-  
-  def do_login
-    redirect_to :controller => :manager, :action => :dashboard
-  end
-  
-  def logout
-    redirect_to :action => :home
   end
   
 end
