@@ -10,20 +10,21 @@
       .header.span-24
         .menu
           %ul
-            - if session[:manager].blank? && session[:builder].blank?
-              %li= link_to 'Sign In', '/sign-in'
+            - if actor_signed_in?
+              %li= link_to 'Dashboard', dashboard_path
+              %li= link_to 'Sign Out', sign_out_path
+            - else
+              %li= link_to 'Sign In', sign_in_path
               %li= link_to 'Register', register_path
-            - elsif !session[:manager].blank?
-              %li= link_to 'Dashboard', :controller => 'manager', :action => :dashboard
-            - elsif !session[:builder].blank?
-              %li= link_to 'dashboard', :controller => 'builder', :action => :dashboard
         .logo= link_to 'Opções', '/' 
         .clear
 
       .content
-        - if notice.class == String
+        .height-50
+        .clear
+        - unless notice.nil?
           .notice= notice
-        - if alert.class == String
+        - unless alert.nil?
           .alert= alert
         = yield
 

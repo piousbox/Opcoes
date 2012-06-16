@@ -3,14 +3,17 @@
 class ManagerController < ApplicationController
   
   before_filter :authenticate_actor!
+#  load_and_authorize_resource
   
   def dashboard
+        
+    puts current_actor.inspect
     
-    @actor = Actor.where(:username => session[:manager][:username])
-    
-    @projects = Actor.where(:username => session[:manager][:username]).limit(1).first().projects.all()
-    
-    authorize! :read, @projects[0]
+#    @actor = Actor.where(:username => session[:manager][:username])
+#    @projects = Actor.where(:username => session[:manager][:username]).limit(1).first().projects.all()
+  
+#    @projects ||= [Project.new]
+#    authorize! :read, @projects[0]
   end
   
   def process_registration
@@ -41,3 +44,4 @@ class ManagerController < ApplicationController
   end
   
 end
+

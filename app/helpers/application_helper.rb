@@ -15,4 +15,20 @@ module ApplicationHelper
   def register_path
     return '/register'
   end
+  
+  def sign_in_path
+    return '/actors/sign_in'
+  end
+  
+  def dashboard_path
+    if current_actor[:is_maganer]
+      return '/managers/dashboard'
+    else
+      return '/builders/dashboard'
+    end
+  end
+  
+  def sign_out_path
+    return '/actors/sign_out'
+  end
 end
