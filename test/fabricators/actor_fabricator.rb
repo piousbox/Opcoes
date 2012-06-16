@@ -14,4 +14,5 @@ Fabricator(:actor) do
   username 'actor_1'
   email 'actor_3@gmail.com'
   password '123456'
+  is_manager false
 end

@@ -20,4 +20,11 @@ class Actor
   validates_uniqueness_of :email, :scope => :is_manager
   
   embeds_many :projects
+  
+  def self.set_manager email
+    new_actor = Actor.where(:email => email).first
+    new_actor.is_manager = true
+    new_actor.save
+  end
+  
 end
