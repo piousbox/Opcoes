@@ -12,18 +12,18 @@
           %ul
             - if session[:manager].blank? && session[:builder].blank?
               %li= link_to 'Sign In', '/sign-in'
-              %li= link_to 'Register', :controller => :manager, :action => :register
+              %li= link_to 'Register', register_path
             - elsif !session[:manager].blank?
-              %li= link_to 'Dashboard', :controller => :manager, :action => :dashboard
+              %li= link_to 'Dashboard', :controller => 'manager', :action => :dashboard
             - elsif !session[:builder].blank?
-              %li= link_to 'dashboard', :controller => :builder, :action => :dashboard
+              %li= link_to 'dashboard', :controller => 'builder', :action => :dashboard
         .logo= link_to 'Opções', '/' 
         .clear
 
       .content
-        - if notice
+        - if notice.class == String
           .notice= notice
-        - if alert
+        - if alert.class == String
           .alert= alert
         = yield
 
@@ -32,17 +32,12 @@
         .span-1
           &nbsp;
         .span-7.menu-bordered
-          %ul.hide
-            %li= link_to 'to Top', '#'
-            %li= link_to 'List Projects', :controller => :projects, :action => :index
-            %li= link_to 'List Builders', :controller => :builder, :action => :index
-            %li= link_to 'List Managers', :controller => :manager, :action => :index
           &nbsp;
         .span-8.menu-bordered
           %ul
             %li= link_to 'Home', '/'
-            %li= link_to 'About Us', :controller => :pages, :action => :about_us
-            %li= link_to 'Privacy Policy', :controller => :pages, :action => :privacy
+            %li= link_to 'About Us', about_us_path
+            %li= link_to 'Privacy Policy', privacy_policy_path
         .span-8.last
           &nbsp;
         .clear

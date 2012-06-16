@@ -29,8 +29,6 @@ class ManagerController < ApplicationController
   
   def register
     
-    
-    
   end
   
   def register_2

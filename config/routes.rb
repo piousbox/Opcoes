@@ -1,14 +1,13 @@
 Opcoes::Application.routes.draw do
-  devise_for :actors
-
-  root :to => 'pages#home'
   
+  devise_for :actors
+  
+  # pages
+  root :to => 'pages#home'
   get 'tour' => 'pages#tour'
   get 'login' => 'pages#login'
   post 'do-login' => 'pages#do_login'
   get 'logout' => 'pages#logout'
-  
-  # pages
   get 'about-us' => 'pages#about_us'
   get 'privacy-policy' => 'pages#privacy'
   

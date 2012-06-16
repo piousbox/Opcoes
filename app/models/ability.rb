@@ -25,7 +25,7 @@ class Ability
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
     
     if actor[:is_manager]
-      can :manage, :all
+#      can :manage, :all
     end
     
   end
