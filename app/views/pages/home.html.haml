@@ -1,35 +1,29 @@
 
 .pages_home
 
-  .height-200
-    &nbsp;
-
-  .span-6
-    &nbsp;
-  .span-6
-    .square-picture
-  .span-6
-    %h3 Opcoes is the service for building and maintaining reliable backlinks.
-  .span-6.last
-    &nbsp;
-  .clear
-  .height-50
-
-  .horizontal-space1
-    %ul.center.tour
+  %a{:name => 'service' }
+  .presentation-slide
+    %h2 Service
+    .height-100
+    .span-12
+      .align-right.float-right
+        .square-picture
+    .span-8
+      %h3 Opcoes is the service for building and maintaining reliable backlinks.
+    .span-4.last
+      &nbsp;
+    .clear
+    .height-50
+    %ul.center.numbers
       %li 1,000 providers
-      %li 20 projects running
-      %li 40,000 links maintained
-
-
-  .height-100
-    &nbsp;
-
-  %ul.center.tour
-    %li= link_to 'How it works', '/'
-    %li= link_to 'Pricing', '/'
-    %li= link_to 'Register', '/'
-  .clear
+      %li 40,000 links
+      %li 20 projects
+    .height-50 &nbsp;
+    %ul.center.tour
+      %li= link_to 'How it works', '#how_it_works', :class => 'how_it_works'
+      %li= link_to 'Pricing', '#pricing', :class => 'pricing'
+      %li= link_to 'Register', '/register'
+    .height-100
 
   %a{:name => 'how_it_works' }
   .presentation-slide
@@ -44,9 +38,9 @@
   .presentation-slide
     %h2 Pricing
     %p We offer backlinks at $0.5 per month. That means that for e.g. $10/mo you will have 20 backlinks that are guarantee to be up.
-
-  %ul.center.tour
-    %li= link_to 'Register Now', '/'
+    .height-100
+    %ul.center.tour
+      %li= link_to 'Start Building', '/'
   .clear
 
   .height-300

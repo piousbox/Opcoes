@@ -32,11 +32,12 @@
         .span-1
           &nbsp;
         .span-7.menu-bordered
-          %ul
+          %ul.hide
             %li= link_to 'to Top', '#'
             %li= link_to 'List Projects', :controller => :projects, :action => :index
             %li= link_to 'List Builders', :controller => :builder, :action => :index
             %li= link_to 'List Managers', :controller => :manager, :action => :index
+          &nbsp;
         .span-8.menu-bordered
           %ul
             %li= link_to 'Home', '/'
