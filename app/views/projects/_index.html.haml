@@ -1,10 +1,23 @@
 
-%table
-- if @projects
-  - @projects.map do |project|
-    %tr
-      %td= project.url
-      %td= project.keywords
-      %td= project.quantity
+%h2.center
+  My Running Tasks
+
+.menu-bordered.menu
+  %ul
+    %li= link_to 'New Task', :controller => :projects, :action => :new
+
+- if projects
+  .projects
+    - projects.map do |project|
+      .project-item
+        .url= link_to project.url, project_path(project)
+        .keywords= project.keywords
+        .quantity
+          %span.has= project.quantity
+          \/
+          %span.needed= 100
+        .view
+          = link_to 'View', project_path(project)
+      .clear
 - else
   No Projects

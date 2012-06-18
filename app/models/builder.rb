@@ -1,6 +1,9 @@
 
 
-class Actor
+
+
+class Builder
+  
   include Mongoid::Document
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -13,12 +16,10 @@ class Actor
   validates_presence_of :email
   validates_uniqueness_of :email
   
-  embeds_many :projects
+  # should have the list of his own urls
+  has_many :urls
   
-  def self.set_manager email
-    new_actor = Actor.where(:email => email).first
-    new_actor.is_manager = true
-    new_actor.save
-  end
+  # should have the list of projects he works on
+  has_many :projects
   
 end

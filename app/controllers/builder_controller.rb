@@ -1,6 +1,6 @@
 
 
-class BuilderController < ApplicationController
+class BuilderController < Devise::RegistrationsController
   
   before_filter :authenticate_actor!
   
@@ -32,10 +32,8 @@ class BuilderController < ApplicationController
     redirect_to :controller => :builder, :action => :dashboard
   end
   
-  def index
-    @builders = Actor.where(:is_manager => false)
-    
-   
+  def create
+    super
   end
   
 end

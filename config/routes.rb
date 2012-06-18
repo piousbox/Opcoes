@@ -5,6 +5,10 @@ Opcoes::Application.routes.draw do
     :registrations => "registrations"
   }
   
+  devise_for :builders, :controllers => {
+    :registrations => "builder"
+  }
+  
   root :to => 'pages#home'
   get 'about-us' => 'pages#about_us'
   get 'privacy-policy' => 'pages#privacy'

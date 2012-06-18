@@ -6,10 +6,8 @@ class ProjectsController < ApplicationController
   
   def show
 #    project_one = Project.create(:name => 'name', :name_seo => 'name_seo', :actor => user)
-    @project = Actor.where('username' => session[:manager][:username]).limit(1).first().
+    @project = Actor.where('email' => current_actor[:email]).limit(1).first().
       projects.where(:_id => params[:_id]).limit(1).first()
-    
-    authorize! :read, @project
   end
   
   def edit
@@ -29,6 +27,7 @@ class ProjectsController < ApplicationController
   
   def create
     actor = Actor.where(:email => current_actor[:email]).limit(1).first
+    params[:project][:datetime] = Time.new
     begin
       @p = actor.projects.push(Project.new(params[:project]))
     rescue
@@ -38,7 +37,6 @@ class ProjectsController < ApplicationController
   end
   
   def add_links
-    puts params[:_id]
     @project = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first().projects.where('_id' => params[:_id]).limit(1).first()
   end
   
@@ -50,7 +48,6 @@ class ProjectsController < ApplicationController
     project = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first().projects.where('_id' => params[:_id]).limit(1).first()
     project.links = []
     (0...project[:quantity]).each do |i|
-      puts params[:links][i.to_s]
       project.links << Link.new(:url => params[:links][i.to_s])
     end
     project.save

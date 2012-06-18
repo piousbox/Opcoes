@@ -5,12 +5,8 @@ class ManagerController < ApplicationController
   before_filter :authenticate_actor!
   
   def dashboard
-    
-#    @actor = Actor.where(:username => session[:manager][:username])
-#    @projects = Actor.where(:username => session[:manager][:username]).limit(1).first().projects.all()
-  
-    @projects ||= [Project.new]
-    authorize! :read, @projects[0]
+    @actor = Actor.where(:email => current_actor[:email]).limit(1).first
+    @projects = Actor.where(:email => current_actor[:email]).limit(1).first.projects.order(:datetime => :desc).all
   end
   
   def process_registration
