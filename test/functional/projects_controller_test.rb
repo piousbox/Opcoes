@@ -4,42 +4,55 @@ require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
   setup do
-    @manager = Fabricate(:manager)
-  end
-  
-  test 'index' do
-    get :index
-    assert_response :success
-    assert_template :index
+    Actor.all.each do |each|
+      each.remove
+    end
     
-    projects = assigns :projects
-    assert_not_nil projects
-    assert_not_nil projects[0][:name]
-  end
-  
-  test 'cannot see this without authorization' do
-    assert false, 'todo ToDo tOd0'
-  end
-  
-  test 'cannot access project/show without authorizing' do
-    assert false, 'todo'
+    @manager = Fabricate(:manager)
+    @project_1 = Fabricate(:project, :actor => @manager)
   end
   
   test 'new' do
+    sign_in :actor, @manager
+    
     get :new
     assert_response :success
   end
   
-#  test 'create' do
-#    post :create
-#    assert_response :redirect
-#    assert_redirected_to :action => :show
-#  end
-  
-  test 'show' do
-    id = 555
-    get :show, :_id => id
-    assert_response :success
-    assert_template :show
+  test 'create' do
+    project = {}
+    project[:quantity] = 5
+    project[:url] = 'http://some-url.com'
+    
+    post :create, :project => project
+    assert_response :redirect
+    assert_redirected_to '/actors/sign_in'
+    
+    sign_in :actor, @manager
+    
+    post :create, :project => project
+    assert_response :redirect
+    assert_redirected_to '/'
+    new_project = Actor.where(:email => @manager[:email]).limit(1).first.projects.order(:datetime => :desc).limit(1).first
+    assert_equal project[:quantity], new_project[:quantity]
+    assert_equal project[:url], new_project[:url]
+    
+    @manager.remove
   end
+  
+#  test 'show' do
+#    id = 555
+#    get :show, :_id => id
+#    assert_response :redirect
+#    assert_redirected_to '/actors/sign_in'
+#    
+#    sign_in :actor, @manager
+#    
+#    get :show, :_id => id
+#    assert_response :success
+#    assert_template :show
+#    
+#    @manager.remove
+#  end
+
 end

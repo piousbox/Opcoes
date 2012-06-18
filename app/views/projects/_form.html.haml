@@ -1,15 +1,15 @@
 
 
-= form_tag '/projects' do |ff|
+= form_for @project do |ff|
   .relative.float-left.margin-right
     = label :project, :url
-    = text_field_tag 'project[url]'
+    = ff.text_field :url, :size => nil
   .relative.float-left.margin-right
     = label :project, :keywords
-    = text_field_tag 'project[keywords]'
+    = ff.text_field :keywords, :size => nil
   .relative.float-left.margin-right
     = label :project, :quantity
-    = text_field_tag 'project[quantity]'
+    = ff.text_field :quantity, :size => nil
   .relative.float-left
-    = submit_tag 'Start!'
+    = ff.submit 'Start Task!'
   .clear

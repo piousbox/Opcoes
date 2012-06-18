@@ -21,6 +21,8 @@ class ProjectsController < ApplicationController
   end
   
   def new
+    @project = Project.new
+    
     @builders = Actor.where(:is_manager => false).order([:username, :desc])
     @builders = [['Random', nil]] + @builders.map { |b| [b.username, b.username] }
   end
@@ -28,11 +30,11 @@ class ProjectsController < ApplicationController
   def create
     actor = Actor.where(:email => current_actor[:email]).limit(1).first
     begin
-      @project = actor.projects.create(params[:project])
+      @p = actor.projects.push(Project.new(params[:project]))
     rescue
     end
     
-    redirect_to :controller => :manager, :action => :dashboard
+    redirect_to '/'
   end
   
   def add_links
