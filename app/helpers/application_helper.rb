@@ -24,8 +24,16 @@ module ApplicationHelper
     link_to 'Sign Out', '/actors/sign_out', :method => :delete
   end
   
+  def builder_sign_out_link
+    link_to 'Sign Out', '/builders/sign_out', :method => :delete
+  end
+  
   def dashboard_link
     link_to 'Dashboard of ' + current_actor[:email], '/' # dashboard_path
+  end
+  
+  def builder_dashboard_link
+    link_to 'Dashboard of ' + current_builder[:email], '/' # dashboard_path
   end
   
 end

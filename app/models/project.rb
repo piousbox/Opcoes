@@ -6,8 +6,6 @@ class Project
   field :url, :type => String
   field :quantity, :type => Integer
   field :keywords, :type => String
-  field :is_trash, :type => Boolean, :default => false
-  field :builder_username, :type => String
   field :datetime, :type => DateTime
   
   validates_uniqueness_of :url
@@ -15,6 +13,6 @@ class Project
   
   embedded_in :actor
   embeds_many :links
-  
+  embeds_one :builder
   
 end

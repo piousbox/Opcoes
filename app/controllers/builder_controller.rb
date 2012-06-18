@@ -1,11 +1,9 @@
 
 
-class BuilderController < Devise::RegistrationsController
-  
-  before_filter :authenticate_actor!
+class BuilderController < ApplicationController
   
   def dashboard
-    @actor = Actor.where(:username => session[:builder][:username])
+    @builder = Builder.where(:email => current_builder[:email]).limit(1).first
     
     begin
       @my_projects = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first()

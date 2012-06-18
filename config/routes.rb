@@ -6,7 +6,7 @@ Opcoes::Application.routes.draw do
   }
   
   devise_for :builders, :controllers => {
-    :registrations => "builder"
+    :registrations => "builder_registrations"
   }
   
   root :to => 'pages#home'

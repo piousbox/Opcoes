@@ -16,10 +16,4 @@ class Builder
   validates_presence_of :email
   validates_uniqueness_of :email
   
-  # should have the list of his own urls
-  has_many :urls
-  
-  # should have the list of projects he works on
-  has_many :projects
-  
 end

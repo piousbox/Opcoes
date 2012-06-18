@@ -1,12 +1,12 @@
 
 
 class SessionsController < Devise::SessionsController
-#  def new
-#    super
-#  end
-
-  # sign in
-  def create
+  
+  def new
+    if builder_signed_in?
+      redirect_to '/'
+    end
+    
     super
   end
 

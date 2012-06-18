@@ -13,6 +13,9 @@
             - if actor_signed_in?
               %li= sign_out_link
               %li= dashboard_link
+            - elsif builder_signed_in?
+              %li= builder_sign_out_link
+              %li= builder_dashboard_link
             - else
               %li= link_to 'Sign In', sign_in_path
               %li= link_to 'Register', register_path
@@ -30,10 +33,12 @@
 
       .clear
       .footer.menu
-        .span-1
-          &nbsp;
+        .span-1 &nbsp;
         .span-7.menu-bordered
-          &nbsp;
+          %ul
+            - if !actor_signed_in? && !builder_signed_in?
+              %li= link_to 'Builder Sign In', '/builders/sign_in'
+            %li &nbsp;
         .span-8.menu-bordered
           %ul
             %li= link_to 'Home', '/'
