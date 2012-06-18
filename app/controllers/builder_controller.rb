@@ -3,13 +3,7 @@
 class BuilderController < ApplicationController
   
   def dashboard
-    @builder = Builder.where(:email => current_builder[:email]).limit(1).first
-    
-    begin
-      @my_projects = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first()
-      @my_projects = @my_projects.projects
-    rescue
-    end
+    @projects = Actor.where('project.builder.email' => current_builder[:email]).all
     
     render :layout => 'builder'
   end

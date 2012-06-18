@@ -7,6 +7,10 @@ class ManagerController < ApplicationController
   def dashboard
     @actor = Actor.where(:email => current_actor[:email]).limit(1).first
     @projects = Actor.where(:email => current_actor[:email]).limit(1).first.projects.order(:datetime => :desc).all
+    
+    @projects.each do |project|
+      project[:quantity_completed] = project.links.where(:is_active => true).all.count
+    end
   end
   
   def process_registration

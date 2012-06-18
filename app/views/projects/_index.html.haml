@@ -13,9 +13,9 @@
         .url= link_to project.url, project_path(project)
         .keywords= project.keywords
         .quantity
-          %span.has= project.quantity
+          %span.has= project.quantity_completed
           \/
-          %span.needed= 100
+          %span.needed= project.quantity
         .view
           = link_to 'View', project_path(project)
       .clear

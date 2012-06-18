@@ -5,6 +5,7 @@ class Project
   
   field :url, :type => String
   field :quantity, :type => Integer
+  field :quantity_completed, :type => Integer
   field :keywords, :type => String
   field :datetime, :type => DateTime
   
