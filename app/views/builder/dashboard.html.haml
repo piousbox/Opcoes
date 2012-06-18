@@ -2,8 +2,9 @@
 
 %h2 Dashboard of Builder
 
+%h3 Available Tasks
 
-%h3 My projects
+%h3 My Tasks
 - if @my_projects.blank?
   No Projects
 - else
@@ -15,7 +16,5 @@
     keywords:
     = p.keywords
     Quantity:
-    = p.quantity
-    
-    
+    = p.quantity    
     %br

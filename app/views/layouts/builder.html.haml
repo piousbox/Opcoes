@@ -5,20 +5,13 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
+  %body.builder
     .container
       .header.span-24
         .menu
           %ul
-            - if actor_signed_in?
-              %li= sign_out_link
-              %li= dashboard_link
-            - elsif builder_signed_in?
-              %li= builder_sign_out_link
-              %li= builder_dashboard_link
-            - else
-              %li= link_to 'Sign In', sign_in_path
-              %li= link_to 'Register', register_path
+            %li= builder_sign_out_link
+            %li= builder_dashboard_link
         .logo= link_to 'Opções', '/' 
         .clear
 

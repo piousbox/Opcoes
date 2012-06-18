@@ -6,6 +6,7 @@ Opcoes::Application.routes.draw do
   }
   
   devise_for :builders, :controllers => {
+    :sessions => "builder_sessions",
     :registrations => "builder_registrations"
   }
   

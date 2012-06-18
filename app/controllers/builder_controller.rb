@@ -11,6 +11,7 @@ class BuilderController < ApplicationController
     rescue
     end
     
+    render :layout => 'builder'
   end
   
   def promote
