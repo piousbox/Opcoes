@@ -36,4 +36,8 @@ module ApplicationHelper
     link_to 'Dashboard of ' + current_builder[:email], '/' # dashboard_path
   end
   
+  def take_project_link project
+    link_to 'Take', {:controller => :projects, :action => :take, :project => project.attributes}, :method => :post
+  end
+  
 end

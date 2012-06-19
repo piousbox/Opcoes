@@ -2,12 +2,12 @@
 
 class ProjectsController < ApplicationController
   
-  before_filter :authenticate_actor!
+  before_filter :authenticate_actor!, :except => [ :take ]
   
   def show
-#    project_one = Project.create(:name => 'name', :name_seo => 'name_seo', :actor => user)
-    @project = Actor.where('email' => current_actor[:email]).limit(1).first().
-      projects.where(:_id => params[:_id]).limit(1).first()
+    #    project_one = Project.create(:name => 'name', :name_seo => 'name_seo', :actor => user)
+    @project = Actor.where('projects._id' => params[:_id]).limit(1).first.
+      projects.where(:_id => params[:_id]).limit(1).first
   end
   
   def edit
@@ -16,6 +16,16 @@ class ProjectsController < ApplicationController
   
   def update
     
+  end
+  
+  def take
+    project = Actor.where('projects.url' => params[:project][:url]).limit(1).first.
+      projects.where(:url => params[:project][:url]).limit(1).first
+    
+    project.builder_email = current_builder[:email]
+    project.save
+    
+    redirect_to :controller => :builder, :action => :dashboard
   end
   
   def new
@@ -38,10 +48,6 @@ class ProjectsController < ApplicationController
   
   def add_links
     @project = Actor.where('projects.builder_username' => session[:builder][:username]).limit(1).first().projects.where('_id' => params[:_id]).limit(1).first()
-  end
-  
-  def destroy
-    
   end
   
   def process_add_links

@@ -3,7 +3,10 @@
 class BuilderController < ApplicationController
   
   def dashboard
-    @projects = Actor.where('project.builder.email' => current_builder[:email]).all
+    @my_projects = Actor.where('projects.builder_email' => current_builder[:email]).all
+    
+    # available tasks are those in which a task is not associated with a builder
+    @available_projects = Actor.where('project.builder.email' => nil).all
     
     render :layout => 'builder'
   end

@@ -8,8 +8,13 @@ class ProjectsControllerTest < ActionController::TestCase
       each.remove
     end
     
+    Builder.all.each do |each|
+      each.remove
+    end
+    
     @manager = Fabricate(:manager)
     @project_1 = Fabricate(:project, :actor => @manager)
+    @builder = Fabricate(:builder)
   end
   
   test 'new' do
@@ -17,6 +22,21 @@ class ProjectsControllerTest < ActionController::TestCase
     
     get :new
     assert_response :success
+  end
+  
+  test 'take' do
+    
+    sign_in :builder, @builder
+    
+    project = {}
+    project[:url] = @project_1.url
+    
+    post :take, :project => project
+    
+    project_2 = Actor.where('projects.url' => @project_1[:url]).limit(1).first.projects.where('url' => @project_1[:url]).limit(1).first
+    assert_not_nil project_2.builder.email
+    assert_equal project_2.builder.email, @builder[:email]
+    
   end
   
   test 'create' do
@@ -33,7 +53,7 @@ class ProjectsControllerTest < ActionController::TestCase
     post :create, :project => project
     assert_response :redirect
     assert_redirected_to '/'
-    new_project = Actor.where(:email => @manager[:email]).limit(1).first.projects.order(:datetime => :desc).limit(1).first
+    new_project = Actor.where(:email => @manager[:email]).limit(1).first.projects.order(:datetime => :asc).limit(1).first
     assert_equal project[:quantity], new_project[:quantity]
     assert_equal project[:url], new_project[:url]
     

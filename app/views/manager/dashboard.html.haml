@@ -2,6 +2,12 @@
 .manager_dashboard
   .height-4
 
+  %h2.center My Running Tasks
+
+  .menu-bordered.menu
+    %ul
+      %li= link_to 'New Task', :controller => :projects, :action => :new
+
   = render 'projects/index', :projects => @projects
 
   .height-400

@@ -1,23 +1,8 @@
 
-%h2.center
-  My Running Tasks
 
-.menu-bordered.menu
-  %ul
-    %li= link_to 'New Task', :controller => :projects, :action => :new
+- if projects  
+  - projects.map do |project|
+    = render 'projects/index_item', :project => project
 
-- if projects
-  .projects
-    - projects.map do |project|
-      .project-item
-        .url= link_to project.url, project_path(project)
-        .keywords= project.keywords
-        .quantity
-          %span.has= project.quantity_completed
-          \/
-          %span.needed= project.quantity
-        .view
-          = link_to 'View', project_path(project)
-      .clear
 - else
-  No Projects
+  No Tasks

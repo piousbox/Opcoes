@@ -1,0 +1,17 @@
+
+- unless defined? take
+  - take = false
+
+.project-item
+  .url= link_to project.url, project_path(project)
+  .keywords= project.keywords
+  .quantity
+    %span.has= project.quantity_completed
+    \/
+    %span.needed= project.quantity
+  .view
+    = link_to 'View', project_path(project)
+    - if take
+      &nbsp;|&nbsp;
+      = take_project_link(project)
+.clear
