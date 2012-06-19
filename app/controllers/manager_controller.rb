@@ -2,7 +2,6 @@
 
 class ManagerController < ApplicationController
   
-  before_filter :authenticate_actor!
   
   def dashboard
     @actor = Actor.where(:email => current_actor[:email]).limit(1).first
@@ -33,15 +32,6 @@ class ManagerController < ApplicationController
   
   def register_2
     
-  end
-  
-  def index
-    @managers = Actor.where(:is_manager => true)
-    
-  end
-  
-  def current_user
-    current_actor
   end
   
 end

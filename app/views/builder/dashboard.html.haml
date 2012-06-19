@@ -6,9 +6,11 @@
 
 - @available_projects.each do |actor|
   - actor.projects.each do |project|
-    = render 'projects/index_item', :project => project, :take => true
+    = render 'projects/index_item', :project => project, :delta => 'take'
 
 %h3 My Tasks
 - @my_projects.each do |actor|
   - actor.projects.each do |project|
-    = render 'projects/index_item', :project => project
+    = render 'projects/index_item', :project => project, :delta => 'build'
+
+= render 'menu_anchor'

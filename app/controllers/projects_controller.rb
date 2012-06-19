@@ -2,7 +2,7 @@
 
 class ProjectsController < ApplicationController
   
-  before_filter :authenticate_actor!, :except => [ :take ]
+  before_filter :authenticate_actor!, :except => [ :take, :build ]
   
   def show
     #    project_one = Project.create(:name => 'name', :name_seo => 'name_seo', :actor => user)
@@ -26,6 +26,10 @@ class ProjectsController < ApplicationController
     project.save
     
     redirect_to :controller => :builder, :action => :dashboard
+  end
+  
+  def build
+    ;
   end
   
   def new

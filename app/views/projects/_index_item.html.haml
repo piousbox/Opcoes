@@ -1,6 +1,6 @@
 
-- unless defined? take
-  - take = false
+- unless defined? delta
+  - delta = ''
 
 .project-item
   .url= link_to project.url, project_path(project)
@@ -11,7 +11,10 @@
     %span.needed= project.quantity
   .view
     = link_to 'View', project_path(project)
-    - if take
+    - if delta == 'take'
       &nbsp;|&nbsp;
       = take_project_link(project)
+    - if delta == 'build'
+      &nbsp;|&nbsp;
+      = build_links_link(project)
 .clear

@@ -40,4 +40,8 @@ module ApplicationHelper
     link_to 'Take', {:controller => :projects, :action => :take, :project => project.attributes}, :method => :post
   end
   
+  def build_links_link project
+    link_to 'Build Links', {:controller => :projects, :action => :build, :project_id => project._id}
+  end
+  
 end

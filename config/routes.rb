@@ -38,5 +38,6 @@ Opcoes::Application.routes.draw do
   get 'projects/:_id/add_links' => 'projects#add_links'
   post 'projects/:_id/process_add_links' => 'projects#process_add_links'
   post 'projects/take' => 'projects#take'
+  get 'projects/build/:project_id' => 'projects#build'
   
 end
